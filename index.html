@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Kampus</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/css/lightbox.min.css" rel="stylesheet" />
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f5f1eb;
+      color: #3b2f2f;
+    }
+
+    header {
+      background-color: #d1b7a1;
+      padding: 15px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .logo img {
+      height: 60px;
+    }
+
+    .menu ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      gap: 20px;
+    }
+
+    .menu a {
+      text-decoration: none;
+      color: #3b2f2f;
+      font-weight: bold;
+    }
+
+    .kategorije {
+      text-align: center;
+      padding: 40px 20px;
+      background-color: #ffffff;
+      border-radius: 16px;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+      max-width: 600px;
+      margin: 30px auto;
+      transition: transform 0.3s ease
+    }
+
+    .ikone {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+    }
+
+    .kategorija {
+      text-align: center;
+      text-decoration: none;
+      color: #3b2f2f;
+      font-size: 16px;
+      transition: transform 0.3s ease, color 0.3s ease;
+    }
+
+    .kategorija i {
+      font-size: 32px;
+      display: block;
+      margin-bottom: 6px;
+      transition: transform 0.3s ease, color 0.3s ease;
+    }
+
+    .kategorija:hover {
+      transform: translateY(-5px);
+      color: #a65b28;
+    }
+
+    .kategorija:hover i {
+      transform: scale(1.2);
+      color: #a65b28;
+    }
+
+    .meni-sekcija {
+      padding: 40px 20px;
+      max-width: 800px;
+      margin: 30px auto;
+      background-color: #ffffff;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .meni-sekcija h3 {
+      border-bottom: 2px solid #d1b7a1;
+      padding-bottom: 5px;
+      margin-bottom: 20px;
+      font-size: 24px;
+    }
+
+    .meni-sekcija ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .meni-sekcija li {
+      padding: 5px 0;
+      font-size: 16px;
+    }
+
+    .galerija {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+      justify-content: center;
+      margin-top: 20px;
+    }
+
+    .galerija a img {
+      width: 200px;
+      height: auto;
+      border-radius: 10px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      object-fit: cover;
+    }
+
+    .galerija-slika {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .galerija-slika img {
+      width: 300px;
+      height: auto;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+
+    .radno-vreme {
+      list-style: none;
+      padding: 0;
+      font-size: 16px;
+      line-height: 1.6;
+      text-align: center;
+    }
+
+    footer {
+      background-color: #d1b7a1;
+      padding: 30px;
+      text-align: center;
+      color: #3b2f2f;
+    }
+
+    footer h4 {
+      margin-bottom: 10px;
+    }
+
+    .menu-toggle {
+      display: none;
+    }
+
+    @media (max-width: 768px) {
+      .menu {
+        width: 100%;
+      }
+
+      .menu ul {
+        flex-direction: column;
+        align-items: center;
+        display: none;
+        width: 100%;
+        background-color: #d1b7a1;
+        margin-top: 10px;
+        border-radius: 10px;
+        padding: 10px 0;
+      }
+
+      .menu ul.show {
+        display: flex;
+      }
+
+      .menu-toggle {
+        display: block;
+        font-size: 28px;
+        background: none;
+        border: none;
+        color: #3b2f2f;
+        cursor: pointer;
+      }
+
+      .menu ul li {
+        padding: 10px 0;
+      }
+
+      .menu ul a {
+        font-size: 18px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <img src="logo.png" alt="Kampus logo" />
+    </div>
+    <nav class="menu">
+      <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+      <ul class="dropdown">
+        <li><a href="#onama">O nama</a></li>
+        <li><a href="#galerija">Galerija</a></li>
+        <li><a href="#radnovreme">Radno vreme</a></li>
+        <li><a href="#kontakt">Kontakt</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="kategorije">
+      <div class="ikone">
+        <a href="#predjelo" class="kategorija"><i class="fas fa-leaf"></i><span>Predjelo</span></a>
+        <a href="#glavno" class="kategorija"><i class="fas fa-drumstick-bite"></i><span>Glavno jelo</span></a>
+        <a href="#toplo" class="kategorija"><i class="fas fa-mug-hot"></i><span>Toplo jelo</span></a>
+        <a href="#napici" class="kategorija"><i class="fas fa-coffee"></i><span>Napici</span></a>
+        <a href="#hleb" class="kategorija"><i class="fas fa-bread-slice"></i><span>Hleb</span></a>
+        <a href="#rostilj" class="kategorija"><i class="fas fa-fire"></i><span>Roštilj</span></a>
+      </div>
+    </section>
+
+    <section id="predjelo" class="meni-sekcija">
+      <h3>Predjela</h3>
+      <ul>
+        <li>Bruskete - 320 din</li>
+        <li>Sirni tanjir - 450 din</li>
+        <li>Masline i prepečen hleb - 300 din</li>
+        <li>Namazi trio - 370 din</li>
+        <li>Caprese salata - 420 din</li>
+        <li>Proja sa sirom - 250 din</li>
+        <li>Mini tart sa pečurkama - 350 din</li>
+        <li>Grilovani feta sir - 400 din</li>
+        <li>Sušeni paradajz i rukola - 370 din</li>
+        <li>Tostirani sendvič sa ajvarom - 290 din</li>
+      </ul>
+    </section>
+
+    <section id="glavno" class="meni-sekcija">
+      <h3>Glavna jela</h3>
+      <ul>
+        <li>Pasta Bolonjeze - 620 din</li>
+        <li>Ćuretina sa pireom - 750 din</li>
+        <li>File lososa sa povrćem - 1100 din</li>
+        <li>Ravioli sa rikotom - 690 din</li>
+        <li>Grilovana piletina sa kinoom - 720 din</li>
+        <li>Biftek u sosu od bibera - 1350 din</li>
+        <li>Piletina na med i senf - 700 din</li>
+        <li>Rižoto sa pečurkama - 680 din</li>
+        <li>Goveđi gulaš sa njokama - 790 din</li>
+        <li>Vegan burger - 640 din</li>
+      </ul>
+    </section>
+
+    <section id="toplo" class="meni-sekcija">
+      <h3>Topla jela</h3>
+      <ul>
+        <li>Čorba od paradajza - 350 din</li>
+        <li>Gulaš - 550 din</li>
+        <li>Krem čorba od bundeve - 360 din</li>
+        <li>Teleća čorba - 470 din</li>
+        <li>Francuska supa od luka - 390 din</li>
+        <li>Minestrone - 400 din</li>
+        <li>Đuveč - 450 din</li>
+        <li>Musaka - 520 din</li>
+        <li>Punjene paprike - 530 din</li>
+        <li>Pasulj prebranac - 410 din</li>
+      </ul>
+    </section>
+
+    <section id="napici" class="meni-sekcija">
+      <h3>Napici</h3>
+      <ul>
+        <li>Espresso - 150 din</li>
+        <li>Limunada - 200 din</li>
+        <li>Kapućino - 190 din</li>
+        <li>Latte Macchiato - 210 din</li>
+        <li>Ice Coffee - 240 din</li>
+        <li>Topla čokolada - 250 din</li>
+        <li>Čaj (razne vrste) - 180 din</li>
+        <li>Sveže ceđeni sok - 350 din</li>
+        <li>Cedevita - 170 din</li>
+        <li>Mineralna voda - 130 din</li>
+      </ul>
+    </section>
+
+    <section id="hleb" class="meni-sekcija">
+      <h3>Hleb</h3>
+      <ul>
+        <li>Fokača - 100 din</li>
+        <li>Beli hleb - 70 din</li>
+        <li>Integralni hleb - 80 din</li>
+        <li>Pogaca sa belim lukom - 120 din</li>
+        <li>Mini lepinje - 90 din</li>
+        <li>Hleb sa semenkama - 110 din</li>
+        <li>Kukuruzni hleb - 90 din</li>
+        <li>Proja - 100 din</li>
+        <li>Pecivo sa sirom - 130 din</li>
+        <li>Pecivo sa spanaćem - 140 din</li>
+      </ul>
+    </section>
+
+    <section id="rostilj" class="meni-sekcija">
+      <h3>Roštilj</h3>
+      <ul>
+        <li>Ćevapi (10 kom) - 600 din</li>
+        <li>Pileći file - 650 din</li>
+        <li>Pljeskavica - 580 din</li>
+        <li>Vešalica - 720 din</li>
+        <li>Mešano meso - 950 din</li>
+        <li>Punjeni pileći file - 750 din</li>
+        <li>Rolovana vešalica - 790 din</li>
+        <li>Ražnjići - 640 din</li>
+        <li>Bela vešalica - 700 din</li>
+        <li>Dimljena kobasica - 500 din</li>
+      </ul>
+    </section>
+
+    <section id="galerija" class="meni-sekcija">
+      <h3>Galerija</h3>
+      <div class="galerija">
+        <a href="enterijer.png" data-lightbox="kampus-galerija" data-title="Enterijer"><img src="enterijer.png" alt="Enterijer" /></a>
+        <a href="kafa.jpg" data-lightbox="kampus-galerija" data-title="Kafa"><img src="kafa.jpg" alt="Kafa" /></a>
+        <a href="hrana.jpg" data-lightbox="kampus-galerija" data-title="Hrana"><img src="hrana.jpg" alt="Hrana" /></a>
+      </div>
+    </section>
+
+    <section id="radnovreme" class="meni-sekcija">
+      <h3>Radno vreme</h3>
+      <ul class="radno-vreme">
+        <li>Ponedeljak - Petak: 08:00 - 22:00</li>
+        <li>Subota: 09:00 - 00:00</li>
+        <li>Nedelja: Zatvoreno</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer>
+    <section id="onama">
+      <h4>O nama</h4>
+      <p>Kampus je mesto za dobar zalogaj i još bolju kafu, u srcu grada.</p>
+    </section>
+    <section id="kontakt">
+      <h4>Kontakt</h4>
+      <p>Email: info@kampus.rs<br>Telefon: +381 64 1234567</p>
+    </section>
+  </footer>
+
+  <script>
+    function toggleMenu() {
+      const menu = document.querySelector('.dropdown');
+      menu.classList.toggle('show');
+    }
+
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/js/lightbox.min.js"></script>
+</body>
+</html>
